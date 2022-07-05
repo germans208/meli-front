@@ -1,12 +1,8 @@
 import React from "react";
+import {Routes} from "react-router-dom";
 
-function App() {
-  return (
-    <div className="app">
-      <h1>Test</h1>
-      <div />
-    </div>
-  );
-}
+const App = () => {
+  return <Routes />;
+};
 
 export default App;
