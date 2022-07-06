@@ -1,5 +1,5 @@
 import React from "react";
-import "./_navbar.scss";
+import "./_navBar.scss";
 
 import ImageSearchMeli from "../../assets/search-meli.png";
 import Logo from "../../assets/logo.svg";

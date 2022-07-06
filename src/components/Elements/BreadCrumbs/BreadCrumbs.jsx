@@ -1,7 +1,13 @@
 import React from "react";
 
-const BreadCrumbs = () => {
-  return <></>;
+const Breadcrumbs = () => {
+  return (
+    <div className="breadcrumb-container">
+      <ol className="breadcrumb-text">
+        <li> Televisores</li>
+      </ol>
+    </div>
+  );
 };
 
-export default BreadCrumbs;
+export default Breadcrumbs;
