@@ -1,9 +1,11 @@
 import React from "react";
 
+import NavBar from "../../../components/NavBar/NavBar";
+
 const ProductoList = () => {
   return (
     <div>
-      <div>Producto1</div>
+      <NavBar />
     </div>
   );
 };
