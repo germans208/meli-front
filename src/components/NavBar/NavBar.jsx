@@ -1,12 +1,16 @@
 import React from "react";
 import "./_navbar.scss";
 
+import ImageSearchMeli from "../../assets/search-meli.png";
+import Logo from "../../assets/logo.svg";
 const NavBar = () => {
   return (
     <div>
       <header className="nav-header" role="banner">
         <div className="nav-bounds">
-          <a className="nav-logo" href="/" />
+          <a className="nav-logo" href="/">
+            <img alt="logo" src={Logo} title="logo" />
+          </a>
 
           <form className="nav-search">
             <input
@@ -17,8 +21,8 @@ const NavBar = () => {
               type="text"
             />
 
-            <button className="nav-search-btn" type="submit">
-              Buscar
+            <button className="nav-search-btn" onClick={(e) => console.log(e)}>
+              <img alt="" src={ImageSearchMeli} />
             </button>
           </form>
         </div>
