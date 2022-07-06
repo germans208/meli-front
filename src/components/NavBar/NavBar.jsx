@@ -9,7 +9,7 @@ const NavBar = () => {
       <header className="nav-header" role="banner">
         <div className="nav-bounds">
           <a className="nav-logo" href="/">
-            <img alt="logo" src={Logo} title="logo" />
+            <img alt="mercado libre" src={Logo} title="logo" />
           </a>
 
           <form className="nav-search">
@@ -22,7 +22,7 @@ const NavBar = () => {
             />
 
             <button className="nav-search-btn" onClick={(e) => console.log(e)}>
-              <img alt="" src={ImageSearchMeli} />
+              <img src={ImageSearchMeli} />
             </button>
           </form>
         </div>

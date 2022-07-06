@@ -1,29 +1,30 @@
-const { merge } = require("webpack-merge");
 const path = require("path");
+
+const {merge} = require("webpack-merge");
+
 const common = require("./webpack.common");
-const { APP_PORT } = require('./config')
+const {APP_PORT} = require("./config");
 
 /** @type {import('webpack').Configuration} */
 const devConfig = {
-    mode: "development",
-    devServer: {
-        static: {
-            directory: path.join(__dirname, 'dist'),
-        },
-        compress: true,
-        port: APP_PORT,
+  mode: "development",
+  devServer: {
+    static: {
+      directory: path.join(__dirname, "../dist"),
     },
-    devtool: "eval-source-map",
-    module: {
-        rules: [
-            {
-                test: /.(css|sass|scss)$/,
-                use: ["style-loader", "css-loader", "sass-loader"],
-            },
-        ],
-    },
+    compress: true,
+    port: APP_PORT,
+    historyApiFallback: true, // estableciendolo en true para redireccionar las respuestas 404 a /index.html
+  },
+  devtool: "eval-source-map",
+  module: {
+    rules: [
+      {
+        test: /.(css|sass|scss)$/,
+        use: ["style-loader", "css-loader", "sass-loader"],
+      },
+    ],
+  },
 };
 
-module.exports = merge(
-    common, devConfig
-)
+module.exports = merge(common, devConfig);
