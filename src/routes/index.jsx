@@ -1,9 +1,9 @@
 import React from "react";
-import {BrowserRouter, Route} from "react-router-dom";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 
 import Home from "../views/Home/Home";
 
-const Routes = () => {
+const AppRoutes = () => {
   return (
     <BrowserRouter>
       <Routes>
@@ -13,4 +13,4 @@ const Routes = () => {
   );
 };
 
-export default Routes;
+export default AppRoutes;

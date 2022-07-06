@@ -1,0 +1,71 @@
+@import "../../main.scss";
+
+.nav-header {
+  background-color: $yellow;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  .nav-bounds {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 56px;
+    margin: 0 16px;
+    max-width: 868px;
+    width: 100%;
+  }
+
+  .nav-logo {
+    height: 36px;
+    margin-right: 16px;
+    width: 53px;
+  }
+
+  .nav-search {
+    background-color: $white;
+    border: 0 rgba(0, 0, 0, 0.2);
+    border-radius: 2px;
+    box-sizing: border-box;
+    display: flex;
+    height: 39px;
+    padding: 7px 5px 9px 15px;
+    flex: 1;
+
+    .nav-icon-search {
+      color: #666;
+      font-size: 16px;
+      font-style: normal;
+
+      span {
+        display: none;
+      }
+    }
+
+    .nav-search-btn {
+      background: none;
+      border: none;
+      border-left: 1px solid #e6e6e6;
+      color: #666;
+      cursor: pointer;
+      height: 26px;
+      outline: none;
+      width: 46px;
+    }
+
+    .nav-search-input {
+      background-color: #fff;
+      border: none;
+      box-sizing: border-box;
+      flex: 1;
+      font-size: 16px;
+      height: 100%;
+      outline: none;
+
+      &::placeholder {
+        color: #bbb;
+        font-weight: 200;
+      }
+    }
+  }
+}

@@ -1,8 +1,10 @@
 import React from "react";
-import {Routes} from "react-router-dom";
+
+import AppRoutes from "./routes";
+import "./main.scss";
 
 const App = () => {
-  return <Routes />;
+  return <AppRoutes />;
 };
 
 export default App;
