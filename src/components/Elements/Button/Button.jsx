@@ -1,11 +1,13 @@
 import React from "react";
 
+import "./_button.scss";
+
 const Button = () => {
   return (
     <div>
-      <div>
-        <button>Comprar</button>
-      </div>
+      <button className="checkout-button" type="button">
+        Comprar
+      </button>
     </div>
   );
 };
