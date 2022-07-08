@@ -1,7 +1,7 @@
 import React from "react";
 
 import NavBar from "../../../components/NavBar/NavBar";
-import Breadcrumbs from "../../../components/Elements/BreadCrumbs/BreadCrumbs";
+import Breadcrumbs from "../../../components/BreadCrumbs/BreadCrumbs";
 
 const ProductoList = () => {
   return (

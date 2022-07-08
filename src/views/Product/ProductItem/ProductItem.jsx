@@ -1,8 +1,8 @@
 import React from "react";
 
-import Button from "../../../components/Elements/Button/Button";
+import Button from "../../../components/Button/Button";
 import NavBar from "../../../components/NavBar/NavBar";
-import Breadcrumbs from "../../../components/Elements/BreadCrumbs/BreadCrumbs";
+import Breadcrumbs from "../../../components/BreadCrumbs/BreadCrumbs";
 import "./_productItem.scss";
 import ImgTest from "../../../assets/test.jpeg";
 
