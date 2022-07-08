@@ -2,13 +2,16 @@ import React from "react";
 
 import Button from "../../../components/Elements/Button/Button";
 import NavBar from "../../../components/NavBar/NavBar";
+import Breadcrumbs from "../../../components/Elements/BreadCrumbs/BreadCrumbs";
 import "./_productItem.scss";
 import ImgTest from "../../../assets/test.jpeg";
 
 const ProductItem = () => {
   return (
-    <div>
+    <article>
       <NavBar />
+      <Breadcrumbs />
+
       <div className="product-container">
         <div className="product">
           <section className="product-information">
@@ -39,7 +42,7 @@ const ProductItem = () => {
           </section>
         </div>
       </div>
-    </div>
+    </article>
   );
 };
 

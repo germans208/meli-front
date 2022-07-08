@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./_breadcrumbs.scss";
+
 const Breadcrumbs = () => {
   return (
     <div className="breadcrumb-container">
