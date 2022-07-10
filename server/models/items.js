@@ -19,15 +19,36 @@ const models = {
                 price: {
                     currency: item.currency_id,
                     amount: item.price,
+                    decimals: '10',
                 },
                 picture: item.thumbnail,
                 condition: item.condition,
                 free_shipping: item.shipping.free_shipping,
-                address: item.address.state_name
             };
         })
     },
 
+    getItemDetails: (item) => {
+        return {
+            id: item.id,
+            title: item.title,
+            price: {
+                currency: item.currency_id,
+                amount: item.price,
+                decimals: '10',
+            },
+            picture: item.thumbnail,
+            condition: item.condition === 'new' ? 'NUEVO' : 'USADO',
+            free_shipping: item.shipping.free_shipping,
+            sold_quantity: item.sold_quantity,
+        };
+    },
+
+    getItemDescription: (description) => {
+        return {
+            description: description.plain_text
+        };
+    },
 }
 
 module.exports = models;
