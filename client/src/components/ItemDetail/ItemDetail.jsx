@@ -1,11 +1,14 @@
 import React from "react";
 
 import Button from "../Button/Button";
-import ImgTest from "../../assets/test.jpeg";
-
+import {currencyFormatter} from "../../utils/functions";
 import "./_itemdetail.scss";
+
 const ItemDetail = ({item}) => {
-  console.log(item);
+  if (Object.keys(item).length === 0) return <></>;
+
+  //  const symbol = item.price.symbol || "$";
+  const price = currencyFormatter(item.price.amount);
 
   return (
     <div className="product-container">
@@ -26,13 +29,13 @@ const ItemDetail = ({item}) => {
             <span>{item.condition}</span>
             <span> - </span>
             <span>{item.sold_quantity}</span>
-            <span>vendidos</span>
+            <span> vendidos</span>
           </div>
           <h1 className="product-title">{item.title}</h1>
           <div className="product-price">
-            {/* <span className="product-price-symbol">{item.price.currency}</span>
-              <span className="product-price-fraction">{item.price.amount}</span>
-              <span className="product-price-decimals">{item.price.decimals}</span> */}
+            {/* <span className="product-price-symbol">{symbol}</span> */}
+            <span className="product-price-fraction">{price}</span>
+            <span className="product-price-decimals">{item.price.decimals}</span>
           </div>
           <Button />
         </section>
