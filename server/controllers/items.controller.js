@@ -6,9 +6,9 @@ const limitItem = 4;
 
 const getBySearch = async (req, res) => {
     try {
-        //const search = req.query.search;
-        const search = "apple"
+        const search = req.query.search;
         const apiUrl = `${url}${region}search?q=${search}&limit=${limitItem}`;
+        console.log(req.query)
         axios.get(apiUrl)
             .then((response) => {
 
