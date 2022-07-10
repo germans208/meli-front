@@ -12,44 +12,43 @@ const Item = ({data}) => {
   const price = currencyFormatter(data.price.amount, symbol);
 
   return (
-    <article className="search-results-container">
-      <ol className="search-results">
-        <li className="results-item">
-          <div className="item-image-container">
-            <Link to={url}>
-              <img alt={data.title} className="item-image" src={data.picture} />
-            </Link>
-          </div>
+    <div>
+      <li className="results-item">
+        <div className="item-image-container">
+          <Link to={url}>
+            <img alt={data.title} className="item-image" src={data.picture} />
+          </Link>
+        </div>
 
-          <div className="item-information">
-            <div>
-              <div className="item-price-shipping">
-                <div className="item-price">
-                  <span className="item-price-fraction">{price}</span>
-                  <span className="item-price-decimals">{data.price.decimals}</span>
-                </div>
-
-                {data.free_shipping && (
-                  <div className="item-shipping-free">
-                    <img alt="Free Shipping" src={ImgShipping} />
-                  </div>
-                )}
+        <div className="item-information">
+          <div>
+            <div className="item-price-shipping">
+              <div className="item-price">
+                <span className="item-price-fraction">{price}</span>
+                <span className="item-price-decimals">{data.price.decimals}</span>
               </div>
 
-              <h2 className="item-title">
-                <Link className="item-title-link" to={url}>
-                  {data.title}
-                </Link>
-              </h2>
+              {data.free_shipping && (
+                <div className="item-shipping-free">
+                  <img alt="Free Shipping" src={ImgShipping} />
+                </div>
+              )}
             </div>
 
-            <div className="item-condition">
-              <span>{data.condition}</span>
-            </div>
+            <h2 className="item-title">
+              <Link className="item-title-link" to={url}>
+                {data.title}
+              </Link>
+            </h2>
           </div>
-        </li>
-      </ol>
-    </article>
+
+          <div className="item-condition">
+            <span>{data.condition}</span>
+          </div>
+        </div>
+      </li>
+      <hr />
+    </div>
   );
 };
 

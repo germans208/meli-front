@@ -6,7 +6,7 @@ const Breadcrumbs = ({categories}) => {
   let breadcrumb = [];
 
   if (categories.length !== 0) {
-    breadcrumb = Object.values(categories).map((element, index) => {
+    breadcrumb = Object.values(categories).map((element, _index) => {
       return (
         <span key={element} className="breadcrumb-item">
           {element}

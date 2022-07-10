@@ -1,30 +1,9 @@
 @import "../../main.scss";
 
-.search-results {
-  background-color: #fff;
-  color: #333;
-  list-style: none;
-  max-width: 876px;
-  padding: 0;
-  width: 100%;
-
-  li:first-child {
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-  }
-}
-
-.search-results-container {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
-
-.results-item {
-  box-sizing: border-box;
-  display: flex;
-  min-height: 208px;
-  padding: 24px;
+hr {
+  margin-inline-start: 1.5em;
+  margin-inline-end:  1.5em;
+  border-top: 1px solid $light-gray;
 }
 
 .item-condition {
@@ -43,7 +22,6 @@
     height: 160px;
     width: 160px;
   }
-
 }
 
 .item-information {
@@ -55,7 +33,7 @@
     margin-top: 0;
 
     .item-title-link {
-      color: #333;
+      color: $black;
       display: block;
       font-size: 20px;
       font-stretch: 100%;
@@ -68,7 +46,7 @@
 }
 
 .item-price {
-  color: #333;
+  color: $black;
   font-size: 24px;
   font-weight: 400;
 
@@ -78,6 +56,9 @@
     top: -8px;
   }
 
+  .item-price-symbol {
+    margin-right: 6px;
+  }
 }
 
 .item-price-shipping {
@@ -92,6 +73,13 @@
     height: 18px;
     width: 18px;
   }
+}
+
+.results-item {
+  box-sizing: border-box;
+  display: flex;
+  min-height: 208px;
+  padding: 24px;
 }
 
 @media (max-width: 767px) {

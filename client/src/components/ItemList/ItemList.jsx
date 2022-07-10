@@ -5,15 +5,15 @@ import "./_item.scss";
 
 const ItemList = ({items}) => {
   return (
-    <section>
-      <div>
+    <div className="search-results-container">
+      <ol className="search-results">
         {items.length === 0 ? (
-          <div>Sin resultados. Prueba buscar otra cosa.</div>
+          <div>Sin resultados.</div>
         ) : (
           Object.values(items).map((item, index) => <Item key={index} data={item} />)
         )}
-      </div>
-    </section>
+      </ol>
+    </div>
   );
 };
 
