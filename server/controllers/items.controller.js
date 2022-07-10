@@ -28,8 +28,7 @@ const getBySearch = async (req, res) => {
 
 const getItemById = async (req, res) => {
     try {
-        //const search = req.query.search;
-        const itemId = "MLA1131398204";
+        const itemId = req.params.id;
         const apiUrl = `${url}items/${itemId}`;
 
         const promiseItem = axios.get(apiUrl);

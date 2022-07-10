@@ -1,17 +1,20 @@
 import React from "react";
-import "./_item.scss";
+import {Link} from "react-router-dom";
 
+import "./_item.scss";
 import ImgShipping from "../../assets/shipping.png";
 
 const Item = ({data}) => {
+  const url = `/items/${data.id}`;
+
   return (
     <article className="search-results-container">
       <ol className="search-results">
         <li className="results-item">
           <div className="item-image-container">
-            <a className="item-image-link">
-              <img alt="" className="item-image" src={data.picture} />
-            </a>
+            <Link to={url}>
+              <img alt={data.title} className="item-image" src={data.picture} />
+            </Link>
           </div>
 
           <div className="item-information">
@@ -31,7 +34,9 @@ const Item = ({data}) => {
               </div>
 
               <h2 className="item-title">
-                <a className="item-title-link">{data.title}</a>
+                <Link className="item-title-link" to={url}>
+                  {data.title}
+                </Link>
               </h2>
             </div>
 
