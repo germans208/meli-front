@@ -22,7 +22,7 @@ const models = {
                     decimals: '10',
                 },
                 picture: item.thumbnail,
-                condition: item.condition,
+                condition: item.condition === 'new' ? 'NUEVO' : 'USADO',
                 free_shipping: item.shipping.free_shipping,
             };
         })

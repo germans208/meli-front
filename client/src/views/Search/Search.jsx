@@ -6,7 +6,7 @@ import Breadcrumbs from "../../components/BreadCrumbs/BreadCrumbs";
 import ItemList from "../../components/ItemList/ItemList";
 
 const Search = () => {
-  const [state, setState] = useState({});
+  const [values, setValues] = useState({});
   const [searchParams] = useSearchParams();
   const queryParams = searchParams.get("search");
 
@@ -14,7 +14,7 @@ const Search = () => {
     const api = await fetch(`/api/items?search=${queryParams}`);
     const result = await api.json();
 
-    setState(result);
+    setValues(result.items);
   };
 
   useEffect(() => {
@@ -26,7 +26,7 @@ const Search = () => {
       <NavBar />
       <Breadcrumbs />
 
-      <ItemList />
+      <ItemList items={values} />
     </div>
   );
 };
