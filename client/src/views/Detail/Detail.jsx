@@ -7,6 +7,8 @@ import ItemDetail from "../../components/ItemDetail/ItemDetail";
 
 const Detail = () => {
   const [values, setValues] = useState({});
+  const [categories, setCategories] = useState([]);
+
   const {id} = useParams();
 
   const fetchAPI = async () => {
@@ -14,6 +16,7 @@ const Detail = () => {
     const result = await api.json();
 
     setValues(result.item);
+    setCategories(result.categories);
   };
 
   useEffect(() => {
@@ -23,7 +26,7 @@ const Detail = () => {
   return (
     <article>
       <NavBar />
-      {/* <Breadcrumbs /> */}
+      <Breadcrumbs categories={categories} />
       <ItemDetail item={values} />
     </article>
   );

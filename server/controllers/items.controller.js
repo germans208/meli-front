@@ -8,17 +8,28 @@ const getBySearch = async (req, res) => {
     try {
         const search = req.query.search;
         const apiUrl = `${url}${region}search?q=${search}&limit=${limitItem}`;
-        console.log(apiUrl)
 
+  
         axios.get(apiUrl)
             .then((response) => {
-
-                //TODO CATEGORIAS 
                 const jsonItems = {};
                 jsonItems.author = modelsItems.getAuthor();
                 jsonItems.categories = modelsItems.getCategories(response.data.filters);
                 jsonItems.items = modelsItems.getItems(response.data.results);
-                res.json(jsonItems)
+
+                //TODO Categorias con mayores resultados
+                //const apiUrlCategories = `${url}categories/${response.data.results.category_id}`;
+                // console.log(response.data.results);
+                // // axios.get()
+                // // .then((response) => {
+                // //     jsonItems.categories = response.data.path_from_root.map(
+                // //         (category) => {
+                // //             return category.name;
+                // //         });
+                // //     res.json(jsonItems);
+                // // });
+
+                res.json(jsonItems);
             })
             .catch((error) => {
                 res.send(error);
@@ -27,6 +38,7 @@ const getBySearch = async (req, res) => {
         return res.status(404).json(error);
     }
 }
+
 
 const getItemById = async (req, res) => {
     try {
@@ -40,11 +52,18 @@ const getItemById = async (req, res) => {
             .then((response) => {
                 const item = response[0].data;
                 const description = response[1].data;
-
                 const jsonItemDetails = {};
                 jsonItemDetails.author = modelsItems.getAuthor();
                 jsonItemDetails.item = { ...modelsItems.getItemDetails(item), ...modelsItems.getItemDescription(description) };
-                res.json(jsonItemDetails)
+
+                axios.get(`${url}categories/${item.category_id}`)
+                    .then((response) => {
+                        jsonItemDetails.categories = response.data.path_from_root.map(
+                            (category) => {
+                                return category.name;
+                            });
+                        res.json(jsonItemDetails);
+                    });
             })
             .catch((error) => {
                 res.send(error);
