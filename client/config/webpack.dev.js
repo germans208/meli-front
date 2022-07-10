@@ -15,6 +15,13 @@ const devConfig = {
     compress: true,
     port: APP_PORT,
     historyApiFallback: true, // estableciendolo en true para redireccionar las respuestas 404 a /index.html
+    proxy: {
+      "/api": {
+        target: "http://localhost:4000",
+        router: () => "http://localhost:8080",
+        logLevel: "debug" /*optional*/,
+      },
+    },
   },
   devtool: "eval-source-map",
   module: {
