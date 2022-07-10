@@ -7,8 +7,8 @@ import "./_itemdetail.scss";
 const ItemDetail = ({item}) => {
   if (Object.keys(item).length === 0) return <></>;
 
-  //  const symbol = item.price.symbol || "$";
-  const price = currencyFormatter(item.price.amount);
+  const symbol = item.price.symbol || "$";
+  const price = currencyFormatter(item.price.amount, symbol);
 
   return (
     <div className="product-container">
@@ -33,7 +33,6 @@ const ItemDetail = ({item}) => {
           </div>
           <h1 className="product-title">{item.title}</h1>
           <div className="product-price">
-            {/* <span className="product-price-symbol">{symbol}</span> */}
             <span className="product-price-fraction">{price}</span>
             <span className="product-price-decimals">{item.price.decimals}</span>
           </div>

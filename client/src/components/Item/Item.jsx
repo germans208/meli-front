@@ -3,9 +3,13 @@ import {Link} from "react-router-dom";
 
 import "./_item.scss";
 import ImgShipping from "../../assets/shipping.png";
+import {currencyFormatter} from "../../utils/functions";
 
 const Item = ({data}) => {
   const url = `/items/${data.id}`;
+
+  const symbol = data.price.symbol || "$";
+  const price = currencyFormatter(data.price.amount, symbol);
 
   return (
     <article className="search-results-container">
@@ -21,8 +25,7 @@ const Item = ({data}) => {
             <div>
               <div className="item-price-shipping">
                 <div className="item-price">
-                  <span className="item-price-symbol">{data.price.currency}</span>
-                  <span className="item-price-fraction">{data.price.amount}</span>
+                  <span className="item-price-fraction">{price}</span>
                   <span className="item-price-decimals">{data.price.decimals}</span>
                 </div>
 

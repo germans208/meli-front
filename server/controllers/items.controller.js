@@ -8,6 +8,8 @@ const getBySearch = async (req, res) => {
     try {
         const search = req.query.search;
         const apiUrl = `${url}${region}search?q=${search}&limit=${limitItem}`;
+        console.log(apiUrl)
+
         axios.get(apiUrl)
             .then((response) => {
 

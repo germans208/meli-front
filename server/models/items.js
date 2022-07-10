@@ -19,10 +19,10 @@ const models = {
                 price: {
                     currency: item.currency_id,
                     amount: item.price,
-                    decimals: '10',
+                    decimals: "00", //TODO NO LO ENCUENTRO
                 },
                 picture: item.thumbnail,
-                condition: item.condition === 'new' ? 'NUEVO' : 'USADO',
+                condition: item.condition === 'new' ? 'Nuevo' : 'Usado',
                 free_shipping: item.shipping.free_shipping,
             };
         })
@@ -35,10 +35,10 @@ const models = {
             price: {
                 currency: item.currency_id,
                 amount: item.price,
-                decimals: '10',
+                decimals: "00", //TODO NO LO ENCUENTRO
             },
-            picture: item.thumbnail,
-            condition: item.condition === 'new' ? 'NUEVO' : 'USADO',
+            picture: item.pictures.length !== 0 ? item.pictures[0].url : item.thumbnail,
+            condition: item.condition === 'new' ? 'Nuevo' : 'Usado',
             free_shipping: item.shipping.free_shipping,
             sold_quantity: item.sold_quantity,
         };
