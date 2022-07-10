@@ -1,10 +1,10 @@
 @import "../../main.scss";
 
 .checkout-button {
-  background-color: #3483fa;
-  border: 1px solid #3483fa;
+  background-color: $light-blue;
+  border: 1px solid $light-blue;
   box-sizing: border-box;
-  color: #fff;
+  color: $white;
   cursor: pointer;
   font-size: 15px;
   height: 46px;

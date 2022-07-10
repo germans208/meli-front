@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import {useParams} from "react-router-dom";
 
 import NavBar from "../../components/NavBar/NavBar";
-import Breadcrumbs from "../../components/BreadCrumbs/BreadCrumbs";
+import Breadcrumbs from "../../components/Breadcrumbs/Breadcrumbs";
 import ItemDetail from "../../components/ItemDetail/ItemDetail";
 
 const Detail = () => {
@@ -23,7 +23,7 @@ const Detail = () => {
   return (
     <article>
       <NavBar />
-      <Breadcrumbs />
+      {/* <Breadcrumbs /> */}
       <ItemDetail item={values} />
     </article>
   );

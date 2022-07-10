@@ -2,11 +2,13 @@ import React, {useEffect, useState} from "react";
 import {useSearchParams} from "react-router-dom";
 
 import NavBar from "../../components/NavBar/NavBar";
-import Breadcrumbs from "../../components/BreadCrumbs/BreadCrumbs";
+import Breadcrumbs from "../../components/Breadcrumbs/Breadcrumbs";
 import ItemList from "../../components/ItemList/ItemList";
 
 const Search = () => {
   const [values, setValues] = useState({});
+  const [categories, setCategories] = useState({});
+
   const [searchParams] = useSearchParams();
   const queryParams = searchParams.get("search");
 
@@ -15,6 +17,7 @@ const Search = () => {
     const result = await api.json();
 
     setValues(result.items);
+    setCategories(result.categories);
   };
 
   useEffect(() => {
@@ -24,7 +27,7 @@ const Search = () => {
   return (
     <div>
       <NavBar />
-      <Breadcrumbs />
+      <Breadcrumbs categories={categories} />
 
       <ItemList items={values} />
     </div>

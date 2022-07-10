@@ -1,3 +1,5 @@
+@import "../../main.scss";
+
 .breadcrumb-container {
   display: flex;
   justify-content: center;
@@ -5,14 +7,16 @@
 }
 
 .breadcrumb-text {
-  color: #999;
+  color: $gray;
   font-size: 13px;
   font-weight: 400;
   padding: 16px 8px 0;
   width: 876px;
 
-  .breadcrumb-separator {
-    font-size: 10px;
-    padding: 0 8px;
+  .breadcrumb-item + .breadcrumb-item::before {
+    content: " > ";
+  }
+  .breadcrumb-item:last-child {
+    font-weight: bold;
   }
 }
