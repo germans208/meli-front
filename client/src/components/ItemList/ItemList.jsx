@@ -8,7 +8,9 @@ const ItemList = ({items}) => {
     <section className="search-results-container">
       <ol className="search-results">
         {items.length === 0 ? (
-          <div>No hay publicaciones que coincidan con tu búsqueda.</div>
+          <div className="search-results-not-found">
+            No hay publicaciones que coincidan con tu búsqueda.
+          </div>
         ) : (
           Object.values(items).map((item, index) => <Item key={index} data={item} />)
         )}
