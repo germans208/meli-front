@@ -28,18 +28,31 @@ const getBySearch = async (req, res) => {
 
         axios.get(apiUrl)
             .then((response) => {
-
+                const jsonItems = {};
                 const ids = modelsItems.getCategoryId(response.data.results);
 
-                getMaxCategory(ids).then((data) => {
-                    const jsonItems = {};
-                    jsonItems.author = modelsItems.getAuthor();
-                    //jsonItems.categories = modelsItems.getCategories(response.data.filters);
-                    jsonItems.categories = data.path_from_root.map(e => e.name);
-                    jsonItems.items = modelsItems.getItems(response.data.results);
+                if (response.data.results.length !== 0) {
 
+                    getMaxCategory(ids).then((data) => {
+                        
+                        jsonItems.author = modelsItems.getAuthor();
+                        //jsonItems.categories = modelsItems.getCategories(response.data.filters);
+                        jsonItems.categories = data.path_from_root.map(e => e.name);
+                        jsonItems.items = modelsItems.getItems(response.data.results);
+
+                        res.json(jsonItems);
+
+                    }).catch((error) => {
+                        res.send(error);
+                    });
+
+                } else {
+
+                    jsonItems.author = modelsItems.getAuthor();
+                    jsonItems.categories = [];
+                    jsonItems.items = [];
                     res.json(jsonItems);
-                });
+                }
             })
             .catch((error) => {
                 res.send(error);

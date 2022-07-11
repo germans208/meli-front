@@ -8,7 +8,7 @@ const ItemList = ({items}) => {
     <div className="search-results-container">
       <ol className="search-results">
         {items.length === 0 ? (
-          <div>Sin resultados.</div>
+          <div>No hay publicaciones que coincidan con tu búsqueda.</div>
         ) : (
           Object.values(items).map((item, index) => <Item key={index} data={item} />)
         )}
