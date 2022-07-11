@@ -1,0 +1,34 @@
+@import "../../styles/main.scss";
+
+.spinner-container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+}
+
+.spinner {
+  align-items: center;
+  align-content: center;
+  margin-top: 100px;
+  color: #fff;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border: 5px solid $white;
+  border-radius: 50%;
+  border-top-color: $yellow;
+  animation: spin 2s ease-in-out infinite;
+  -webkit-animation: spin 2s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
