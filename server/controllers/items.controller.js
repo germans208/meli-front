@@ -1,35 +1,45 @@
 const axios = require('axios');
+const { json } = require('body-parser');
 const modelsItems = require('../models/items');
 const url = process.env.URL;
 const region = process.env.REGION;
 const limitItem = 4;
+
+function getCategoriesById(category_id) {
+    return axios.get(`${url}categories/${category_id}`);
+}
+/**
+Obtengo la maxima cantidad de resultados total_items_in_this_category, para poner la categorias
+ */
+async function getMaxCategory(ids) {
+    const allCategories = await Promise.all(ids.map(id => getCategoriesById(id)));
+
+    const objects = ids.map((e, i) => { return modelsItems.getCategories(allCategories[i].data) })
+    const maxResults = Math.max(...objects.map(e => e.total_items_in_this_category));
+    const category = objects.find(e => e.total_items_in_this_category === maxResults);
+
+    return category;
+}
 
 const getBySearch = async (req, res) => {
     try {
         const search = req.query.search;
         const apiUrl = `${url}${region}search?q=${search}&limit=${limitItem}`;
 
-  
         axios.get(apiUrl)
             .then((response) => {
-                const jsonItems = {};
-                jsonItems.author = modelsItems.getAuthor();
-                jsonItems.categories = modelsItems.getCategories(response.data.filters);
-                jsonItems.items = modelsItems.getItems(response.data.results);
 
-                //TODO Categorias con mayores resultados
-                //const apiUrlCategories = `${url}categories/${response.data.results.category_id}`;
-                // console.log(response.data.results);
-                // // axios.get()
-                // // .then((response) => {
-                // //     jsonItems.categories = response.data.path_from_root.map(
-                // //         (category) => {
-                // //             return category.name;
-                // //         });
-                // //     res.json(jsonItems);
-                // // });
+                const ids = modelsItems.getCategoryId(response.data.results);
 
-                res.json(jsonItems);
+                getMaxCategory(ids).then((data) => {
+                    const jsonItems = {};
+                    jsonItems.author = modelsItems.getAuthor();
+                    //jsonItems.categories = modelsItems.getCategories(response.data.filters);
+                    jsonItems.categories = data.path_from_root.map(e => e.name);
+                    jsonItems.items = modelsItems.getItems(response.data.results);
+
+                    res.json(jsonItems);
+                });
             })
             .catch((error) => {
                 res.send(error);

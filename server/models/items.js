@@ -7,8 +7,20 @@ const models = {
         }
     },
 
-    getCategories: (filters) => {
-        return filters.length === 0 ? [] : Object.values(filters[0].values[0].path_from_root).map(e => e.name);
+    // getCategories: (filters) => {
+    //     return filters.length === 0 ? [] : Object.values(filters[0].values[0].path_from_root).map(e => e.name);
+    // },
+
+    getCategoryId: (results) => {
+        return results.map((item) => item.category_id)
+    },
+
+    getCategories: (results) => {
+        return {
+            id: results.id,
+            path_from_root: results.path_from_root,
+            total_items_in_this_category: results.total_items_in_this_category
+        };
     },
 
     getItems: (results) => {
