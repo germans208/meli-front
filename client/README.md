@@ -5,19 +5,24 @@ A continuación presentamos el diseño y la descripción funcional de una peque�
 que deberás desarrollar.
 La aplicación consta de tres componentes principales: la caja de búsqueda, la visualización de resultados, y la
 descripción del detalle del producto.
+
 Tenés que usar el siguiente stack tecnológico para construir la aplicación:
 
 ● Cliente:
-    ○ HTML
-    ○ JS (Deseable utilizar React o Backbone)
-    ○ CSS (Deseable utilizar Sass)
-● Servidor:
-    ○ Node >= 6
-    ○ Express
+○ HTML
+○ JS (Deseable utilizar React o Backbone)
+○ CSS (Deseable utilizar Sass)
 
-## Para resolverlo, te pedimos que tengas en cuenta:
+## Instalación
 
-● Usabilidad
-● SEO
-● Performance
-● Escalabilidad
+```sh
+npm install
+
+```
+
+## Desarrollada con:
+
+- React 17.0.2
+- Sass 1.53.0
+
+https://www.linkedin.com/in/gsettino/
