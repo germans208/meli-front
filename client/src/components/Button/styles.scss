@@ -1,0 +1,16 @@
+@import "../../styles/main.scss";
+
+.item-button-primary {
+  border: none;
+  background-color: #3483fa;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 2.57;
+  cursor: pointer;
+  width: 100%;
+
+  &:hover {
+    background-color: darken(#3483fa, 10%);
+  }
+}

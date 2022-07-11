@@ -1,0 +1,27 @@
+body {
+  background-color: $light-gray;
+  font-family: $font-family;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  display: inline-block;
+  vertical-align: middle;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.item-container {
+  max-width: 868px;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+  padding-left: 10px;
+  padding-right: 10px;
+}

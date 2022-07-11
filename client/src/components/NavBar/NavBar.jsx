@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {useNavigate} from "react-router-dom";
-import "./_navBar.scss";
+import "./styles.scss";
 
 import ImageSearchMeli from "../../assets/search-meli.png";
 import Logo from "../../assets/logo.svg";

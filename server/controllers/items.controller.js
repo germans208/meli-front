@@ -14,9 +14,9 @@ Obtengo la maxima cantidad de resultados total_items_in_this_category, para pone
 async function getMaxCategory(ids) {
     const allCategories = await Promise.all(ids.map(id => getCategoriesById(id)));
 
-    const objects = ids.map((e, i) => { return modelsItems.getCategories(allCategories[i].data) })
-    const maxResults = Math.max(...objects.map(e => e.total_items_in_this_category));
-    const category = objects.find(e => e.total_items_in_this_category === maxResults);
+    const categories = ids.map((e, i) => { return modelsItems.getCategories(allCategories[i].data) })
+    const maxResults = Math.max(...categories.map(e => e.total_items_in_this_category));
+    const category = categories.find(e => e.total_items_in_this_category === maxResults);
 
     return category;
 }
@@ -26,6 +26,7 @@ const getBySearch = async (req, res) => {
         const search = req.query.search;
         const apiUrl = `${url}${region}search?q=${search}&limit=${limitItem}`;
 
+        console.log(apiUrl)
         axios.get(apiUrl)
             .then((response) => {
                 const jsonItems = {};

@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
 
-import "./_item.scss";
+import "./styles.scss";
 import ImgShipping from "../../assets/shipping.png";
 import {currencyFormatter} from "../../utils/functions";
 

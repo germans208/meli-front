@@ -5,6 +5,8 @@ import NavBar from "../../components/NavBar/NavBar";
 import Breadcrumbs from "../../components/Breadcrumbs/Breadcrumbs";
 import ItemList from "../../components/ItemList/ItemList";
 
+import "../../styles/main.scss";
+
 const Search = () => {
   const [values, setValues] = useState({});
   const [categories, setCategories] = useState({});
@@ -25,12 +27,13 @@ const Search = () => {
   }, [queryParams]);
 
   return (
-    <div>
+    <main>
       <NavBar />
-      <Breadcrumbs categories={categories} />
-
-      <ItemList items={values} />
-    </div>
+      <div className="item-container">
+        <Breadcrumbs categories={categories} />
+        <ItemList items={values} />
+      </div>
+    </main>
   );
 };
 

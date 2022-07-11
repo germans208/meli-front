@@ -1,14 +1,14 @@
 import React from "react";
 
 import NavBar from "../../components/NavBar/NavBar";
-import "./_notfound.scss";
+import "./styles.scss";
 
 const NotFound = () => {
   return (
     <div>
       <NavBar />
       <div className="not-found">
-        <p>Pagina no encontrada</p>
+        <p>Parece que esta página no existe</p>
       </div>
     </div>
   );

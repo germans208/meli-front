@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./_breadcrumbs.scss";
+import "./styles.scss";
 
 const Breadcrumbs = ({categories}) => {
   let breadcrumb = [];
