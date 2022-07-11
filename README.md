@@ -8,7 +8,7 @@ descripción del detalle del producto.
 
 Tenés que usar el siguiente stack tecnológico para construir la aplicación:
 
-- *Cliente:
+- Cliente:
   - HTML 
   - JS (Deseable utilizar React o Backbone)
   - CSS (Deseable utilizar Sass)
