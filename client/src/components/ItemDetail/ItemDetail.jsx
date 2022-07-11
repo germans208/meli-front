@@ -5,7 +5,7 @@ import {currencyFormatter} from "../../utils/functions";
 import "./styles.scss";
 
 const ItemDetail = ({item}) => {
-  if (Object.keys(item).length === 0) return <></>;
+  if (item === undefined) return <div />;
 
   const symbol = item.price.symbol || "$";
   const price = currencyFormatter(item.price.amount, symbol);

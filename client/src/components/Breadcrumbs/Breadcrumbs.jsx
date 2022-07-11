@@ -5,6 +5,13 @@ import "./styles.scss";
 const Breadcrumbs = ({categories}) => {
   let breadcrumb = [];
 
+  if (categories === undefined)
+    return (
+      <div className="not-found">
+        <p>Parece que esta página no existe</p>
+      </div>
+    );
+
   if (categories.length !== 0) {
     breadcrumb = Object.values(categories).map((element, _index) => {
       return (

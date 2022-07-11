@@ -25,8 +25,6 @@ const getBySearch = async (req, res) => {
     try {
         const search = req.query.search;
         const apiUrl = `${url}${region}search?q=${search}&limit=${limitItem}`;
-
-        console.log(apiUrl)
         axios.get(apiUrl)
             .then((response) => {
                 const jsonItems = {};
@@ -35,7 +33,7 @@ const getBySearch = async (req, res) => {
                 if (response.data.results.length !== 0) {
 
                     getMaxCategory(ids).then((data) => {
-                        
+
                         jsonItems.author = modelsItems.getAuthor();
                         //jsonItems.categories = modelsItems.getCategories(response.data.filters);
                         jsonItems.categories = data.path_from_root.map(e => e.name);
