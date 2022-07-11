@@ -2,8 +2,8 @@
 
 .item-button-primary {
   border: none;
-  background-color: #3483fa;
-  color: #fff;
+  background-color: $light-blue;
+  color: $white;
   border-radius: 4px;
   font-size: 14px;
   line-height: 2.57;
@@ -11,6 +11,6 @@
   width: 100%;
 
   &:hover {
-    background-color: darken(#3483fa, 10%);
+    background-color: darken($light-blue, 10%);
   }
 }
